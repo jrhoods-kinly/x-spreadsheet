@@ -142,6 +142,8 @@ declare module 'x-data-spreadsheet' {
 
   export default class Spreadsheet {
     constructor(container: string | HTMLElement, opts?: Options);
+    sheetIndex: number;
+
     on: SpreadsheetEventHandler;
     /**
      * retrieve cell
@@ -199,6 +201,8 @@ declare module 'x-data-spreadsheet' {
      * @param message
      */
     static locale(lang: string, message: object): void;
+
+    selectCell(ri: number, ci: number);
   }
   global {
     interface Window {

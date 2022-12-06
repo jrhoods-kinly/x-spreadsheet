@@ -126,6 +126,11 @@ class Spreadsheet {
   static locale(lang, message) {
     locale(lang, message);
   }
+
+  // JPR 06/12/22 - attempting to add API functionality to change cell selection programatically i.e. in response to events
+  selectCell(ri, ci) {
+    this.sheet.selectCell(ri, ci);
+  }
 }
 
 const spreadsheet = (el, options = {}) => new Spreadsheet(el, options);
