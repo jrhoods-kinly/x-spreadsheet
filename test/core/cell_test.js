@@ -47,7 +47,7 @@ describe('infixExprToSuffixExpr', () => {
     assert.equal(infixExprToSuffixExpr('9+(3-1*2)*3+4/2').join(''), '9312*-3*+42/+');
   });
   it('should return 931-+23+*42/+ when the value is (9+(3-1))*(2+3)+4/2', () => {
-    assert.equal(infixExprToSuffixExpr('(9+(3-1))*(2+3)+4/2').join(''), '931-+23+*42/+');
+    assert.equal(infixExprToSuffixExpr('(9+(3-1))*(2+3)+4/2').join(''), '931-+*23+42/+');
   });
   it('should return SUM(1) when the value is 1SUM,1', () => {
     assert.equal(infixExprToSuffixExpr('SUM(1)').join(''), '1SUM');
