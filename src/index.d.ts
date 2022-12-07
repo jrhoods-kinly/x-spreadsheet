@@ -1,3 +1,5 @@
+import Selector from "./core/selector";
+
 declare module 'x-data-spreadsheet-kinly' {
   export interface ExtendToolbarOption {
     tip?: string;
@@ -50,6 +52,7 @@ declare module 'x-data-spreadsheet-kinly' {
   export type CELL_SELECTED = 'cell-selected';
   export type CELLS_SELECTED = 'cells-selected';
   export type CELL_EDITED = 'cell-edited';
+  export type SHEET_CHANGED = 'sheet-changed';
 
   export type CellMerge = [number, number];
 
@@ -69,6 +72,10 @@ declare module 'x-data-spreadsheet-kinly' {
       evnt: CELL_EDITED,
       callback: (text: string, rowIndex: number, colIndex: number) => void
     ): void;
+    (
+      envt: SHEET_CHANGED,
+      callback: (data: SheetData)
+    )
   }
 
   export interface ColProperties {
@@ -107,6 +114,7 @@ declare module 'x-data-spreadsheet-kinly' {
     rows?: {
       [key: number]: RowData
     };
+    selector?: Selector
   }
 
   /**

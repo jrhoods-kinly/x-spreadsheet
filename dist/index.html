@@ -99,6 +99,8 @@
           console.log('text:', text, ', ri: ', ri, ', ci:', ci);
         }).on('pasted-clipboard', (data) => {
           console.log('>>>> data is ', data);
+        }).on('sheet-changed', (data) => {
+          console.log(data);
         });
 
       setTimeout(() => {
