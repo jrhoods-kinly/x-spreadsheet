@@ -536,11 +536,13 @@ function insertDeleteRowColumn(type) {
   } else if (type === 'delete-column') {
     data.delete('column');
   } else if (type === 'delete-cell') {
-    data.deleteCell();
+    var selector = data.deleteCell();
+    this.trigger('cell-edited', "", selector.ri, selector.ci);
   } else if (type === 'delete-cell-format') {
     data.deleteCell('format');
   } else if (type === 'delete-cell-text') {
-    data.deleteCell('text');
+    var selector = data.deleteCell('text');
+    this.trigger('cell-edited', "", selector.ri, selector.ci);
   } else if (type === 'cell-printable') {
     data.setSelectedCellAttr('printable', true);
   } else if (type === 'cell-non-printable') {

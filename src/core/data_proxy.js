@@ -858,6 +858,8 @@ export default class DataProxy {
         this.merges.deleteWithin(selector.range);
       }
     });
+
+    return selector;
   }
 
   // type: row | column
