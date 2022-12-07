@@ -74,8 +74,8 @@ declare module 'x-data-spreadsheet-kinly' {
     ): void;
     (
       envt: SHEET_CHANGED,
-      callback: (data: SheetData)
-    )
+      callback: (data: SheetData) => void
+    ): void;
   }
 
   export interface ColProperties {
