@@ -137,12 +137,7 @@ declare module 'x-data-spreadsheet-kinly' {
 
   export interface Row {}
   export interface Table {}
-  export interface Cell {
-    ri: number;
-    ci: number;
-    sheetIndex: number;
-    value: string | number;
-  }
+  export interface Cell {}
   export interface Sheet {}
 
   export default class Spreadsheet {
@@ -156,7 +151,7 @@ declare module 'x-data-spreadsheet-kinly' {
      * @param colIndex {number} column index
      * @param sheetIndex {number} sheet iindex
      */
-    cell(rowIndex: number, colIndex: number, sheetIndex: number): Cell;
+    cell(rowIndex: number, colIndex: number, sheetIndex?: number): CellData;
     /**
      * retrieve cell style
      * @param rowIndex
