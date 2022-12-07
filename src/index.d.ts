@@ -1,5 +1,3 @@
-import Selector from "./core/selector";
-
 declare module 'x-data-spreadsheet-kinly' {
   export interface ExtendToolbarOption {
     tip?: string;
@@ -147,6 +145,11 @@ declare module 'x-data-spreadsheet-kinly' {
   export interface Table {}
   export interface Cell {}
   export interface Sheet {}
+
+  export interface Selector {
+    ri: number;
+    ci: number;
+  }
 
   export default class Spreadsheet {
     constructor(container: string | HTMLElement, opts?: Options);
