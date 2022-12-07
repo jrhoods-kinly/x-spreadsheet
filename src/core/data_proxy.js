@@ -1240,4 +1240,11 @@ export default class DataProxy {
       autofilter: autoFilter.getData(),
     };
   }
+
+  getCell(ri, ci) {
+    let data = this.getData();
+
+    //return data?.rows?.[ri]?.cells?.[ci] ?? null;
+    return data.rows?.[ri]?.cells?.[ci] ?? null;
+  }
 }

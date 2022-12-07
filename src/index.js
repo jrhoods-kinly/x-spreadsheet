@@ -135,6 +135,8 @@ class Spreadsheet {
 
 const spreadsheet = (el, options = {}) => new Spreadsheet(el, options);
 
+debugger;
+
 if (window) {
   window.x_spreadsheet = spreadsheet;
   window.x_spreadsheet.locale = (lang, message) => locale(lang, message);

@@ -73,6 +73,7 @@ function selectorSet(multiple, ri, ci, indexesUpdated = true, moving = false) {
     table, selector, toolbar, data,
     contextMenu,
   } = this;
+
   const cell = data.getCell(ri, ci);
   if (multiple) {
     selector.setEnd(ri, ci, moving);
@@ -595,6 +596,12 @@ function sortFilterChange(ci, order, operator, value) {
   sheetReset.call(this);
 }
 
+function getCell(ri, ci) {
+  const { data } = this;
+
+  return data.getCell(ri, ci);
+}
+
 function sheetInitEvents() {
   const {
     selector,
@@ -1013,5 +1020,9 @@ export default class Sheet {
 
   selectCell(ri, ci) {
     selectorSet.call(this, false, ri, ci);
+  }
+
+  getCell(ri, ci) {
+    getCell.call(this, ri, ci);
   }
 }

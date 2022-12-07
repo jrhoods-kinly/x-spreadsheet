@@ -137,7 +137,12 @@ declare module 'x-data-spreadsheet-kinly' {
 
   export interface Row {}
   export interface Table {}
-  export interface Cell {}
+  export interface Cell {
+    ri: number;
+    ci: number;
+    sheetIndex: number;
+    value: string | number;
+  }
   export interface Sheet {}
 
   export default class Spreadsheet {
