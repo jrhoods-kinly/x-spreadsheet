@@ -84,7 +84,7 @@ declare module 'x-data-spreadsheet-kinly' {
    * Data for representing a cell
    */
   export interface CellData {
-    text: string;
+    text: string | number;
     style?: number;
     merge?: CellMerge;
   }
