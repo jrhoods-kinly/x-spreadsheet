@@ -285,6 +285,25 @@ function sheetFreeze() {
   selector.resetAreaOffset();
 }
 
+function resetHideColsAndRows() {
+  const {
+    data
+  } = this;
+  if (data.hide) {
+    const { rows, cols } = data.hide;
+    if (rows) {
+      for (var i = 0; i < rows.length; i++) {
+        this.data.hideRowsOrCols("row", rows[i]);
+      }
+    }
+    if (cols) {
+      for (var i = 0; i < cols.length; i++) {
+        this.data.hideRowsOrCols("col", cols[i]);
+      }
+    }
+  }
+}
+
 function sheetReset() {
   const {
     tableEl,
@@ -304,6 +323,7 @@ function sheetReset() {
   verticalScrollbarSet.call(this);
   horizontalScrollbarSet.call(this);
   sheetFreeze.call(this);
+  resetHideColsAndRows.call(this);
   table.render();
   toolbar.reset();
   selector.reset();
@@ -969,6 +989,7 @@ export default class Sheet {
     this.data = data;
     verticalScrollbarSet.call(this);
     horizontalScrollbarSet.call(this);
+    resetHideColsAndRows.call(this);
     this.toolbar.resetData(data);
     this.print.resetData(data);
     this.selector.resetData(data);

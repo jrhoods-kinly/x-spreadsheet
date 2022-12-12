@@ -1127,12 +1127,23 @@ export default class DataProxy {
       .forEach(it => cb(it));
   }
 
-  hideRowsOrCols() {
+  hideRowsOrCols(type, index) {
     const { rows, cols, selector } = this;
     const [rlen, clen] = selector.size();
     const {
       sri, sci, eri, eci,
     } = selector.range;
+
+    if (type && index) {
+      if (type == "col") {
+        cols.setHide(index, true);
+      } else if (type == "row") {
+        rows.setHide(index, true);
+      }
+
+      return;
+    }
+
     if (rlen === rows.len) {
       for (let ci = sci; ci <= eci; ci += 1) {
         cols.setHide(ci, true);

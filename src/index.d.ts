@@ -105,6 +105,10 @@ declare module 'x-data-spreadsheet-kinly' {
     freeze?: string;
     styles?: CellStyle[];
     merges?: string[];
+    hide?: {
+      cols?: number[];
+      rows?: number[];
+    }
     cols?: {
       len?: number;
       [key: number]: ColProperties;
