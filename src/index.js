@@ -13,6 +13,7 @@ class Spreadsheet {
     let targetEl = selectors;
     this.options = { showBottomBar: true, ...options };
     this.sheetIndex = 1;
+    this.currentSheetIndex = 0;
     this.datas = [];
     if (typeof selectors === 'string') {
       targetEl = document.querySelector(selectors);
@@ -20,10 +21,14 @@ class Spreadsheet {
     this.bottombar = this.options.showBottomBar ? new Bottombar(() => {
       if (this.options.mode === 'read') return;
       const d = this.addSheet();
+      this.currentSheetIndex = this.datas.length - 1;
       this.sheet.resetData(d);
+      this.sheet.trigger('sheet-changed', d);
     }, (index) => {
       const d = this.datas[index];
+      this.currentSheetIndex = index;
       this.sheet.resetData(d);
+      this.sheet.trigger('sheet-changed', d);
     }, () => {
       this.deleteSheet();
     }, (index, value) => {
@@ -90,12 +95,12 @@ class Spreadsheet {
     return this.datas.map(it => it.getData());
   }
 
-  cellText(ri, ci, text, sheetIndex = 0) {
+  cellText(ri, ci, text, sheetIndex = this.currentSheetIndex) {
     this.datas[sheetIndex].setCellText(ri, ci, text, 'finished');
     return this;
   }
 
-  cell(ri, ci, sheetIndex = 0) {
+  cell(ri, ci, sheetIndex = this.currentSheetIndex) {
     return this.datas[sheetIndex].getCell(ri, ci);
   }
 

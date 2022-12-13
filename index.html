@@ -13,6 +13,8 @@
   </div>
   <div id="x-spreadsheet-demo"></div>
     <script>
+      var xs;
+      
     function load(){
       const rows10 = { len: 1000 };
       for (let i = 0; i < 1000; i += 1) {
@@ -55,7 +57,7 @@
       previewEl.width = 16
       previewEl.height = 16
 
-      var xs = x_spreadsheet('#x-spreadsheet-demo', {
+      xs = x_spreadsheet('#x-spreadsheet-demo', {
         showToolbar: true,
         showGrid: true,
         showBottomBar: true,

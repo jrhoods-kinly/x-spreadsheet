@@ -116,7 +116,8 @@ declare module 'x-data-spreadsheet-kinly' {
     rows?: {
       [key: number]: RowData
     };
-    selector?: Selector
+    selector?: Selector;
+    sheetIndex?: number;
   }
 
   /**
