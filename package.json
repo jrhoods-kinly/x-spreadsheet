@@ -6,9 +6,7 @@
   "main": "src/index.js",
   "files": [
     "assets",
-    "dist",
-    "src",
-    "build"
+    "dist"
   ],
   "author": "myliang <liangyuliang0335@gmail.com>",
   "license": "MIT",
