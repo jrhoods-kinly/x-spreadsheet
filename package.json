@@ -1,6 +1,6 @@
 {
   "name": "x-data-spreadsheet-kinly",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "a javascript xpreadsheet",
   "types": "src/index.d.ts",
   "main": "src/index.js",
