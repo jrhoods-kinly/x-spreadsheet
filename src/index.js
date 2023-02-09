@@ -141,11 +141,13 @@ class Spreadsheet {
 
   // JPR 06/02/23 - adding last row/col functions
   lastRow(sheetIndex = this.currentSheetIndex) {
-    return this.datas[sheetIndex].rows.len;
+    var keys = Object.keys(this.datas[sheetIndex].rows);
+    return keys.reduce((a, b) => Math.max(a, b), 0);
   }
 
   lastCol(sheetIndex = this.currentSheetIndex) {
-    return this.datas[sheetIndex].rows.len;
+    var keys = Object.keys(this.datas[sheetIndex].cols);
+    return keys.reduce((a, b) => Math.max(a, b), 0);
   }
 }
 
