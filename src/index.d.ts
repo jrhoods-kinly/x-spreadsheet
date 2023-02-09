@@ -222,9 +222,9 @@ declare module 'x-data-spreadsheet-kinly' {
 
     selectCells(sri: number, sci: number, eri: number, eci: number);
 
-    lastRow(sheetIndex: number?);
+    lastRow(sheetIndex?: number);
 
-    lastCol(sheetIndex: number?);
+    lastCol(sheetIndex?: number);
   }
   global {
     interface Window {
