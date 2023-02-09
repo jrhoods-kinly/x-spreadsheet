@@ -134,6 +134,19 @@ class Spreadsheet {
   selectCell(ri, ci) {
     this.sheet.selectCell(ri, ci);
   }
+
+  selectCells(sri, sci, eri, eci) {
+    this.sheet.selectCells(sri, sci, eri, eci);
+  }
+
+  // JPR 06/02/23 - adding last row/col functions
+  lastRow() {
+    return this.datas[this.currentSheetIndex].rows.length;
+  }
+
+  lastCol() {
+    return this.datas[this.currentSheetIndex].rows.length;
+  }
 }
 
 const spreadsheet = (el, options = {}) => new Spreadsheet(el, options);

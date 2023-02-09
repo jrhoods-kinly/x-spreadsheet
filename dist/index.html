@@ -107,6 +107,8 @@
         }).on('sheet-changed', (data, index) => {
           console.log(data);
           console.log(index);
+          console.log(data.lastRow());
+          console.log(data.lastCol());
         });
 
       setTimeout(() => {
@@ -115,4 +117,8 @@
         console.log('cell(8, 8):', xs.cell(8, 8));
         console.log('cellStyle(8, 8):', xs.cellStyle(8, 8));
       }, 5000);
+
+      setTimeout(() => {
+        xs.selectCells(5, 5, 7, 7);
+      }, 3000);
     }</script></body></html>

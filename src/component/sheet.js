@@ -88,6 +88,18 @@ function selectorSet(multiple, ri, ci, indexesUpdated = true, moving = false) {
   table.render();
 }
 
+function selectorRangeSet(sri, sci, eri, eci) {
+  const { selector, data, contextMenu, toolbar, table } = this;
+  const cell = data.getCell(sri, sci);
+  selector.set(sri, sci, true);
+  selector.setEnd(eri, eci, false);
+
+  this.trigger('cells-selected', cell, selector.range);
+  contextMenu.setMode('range');
+  toolbar.reset();
+  table.render();
+}
+
 // multiple: boolean
 // direction: left | right | up | down | row-first | row-last | col-first | col-last
 function selectorMove(multiple, direction) {
@@ -1047,5 +1059,9 @@ export default class Sheet {
 
   getCell(ri, ci) {
     getCell.call(this, ri, ci);
+  }
+
+  selectCells(sri, sci, eri, eci) {
+    selectorRangeSet.call(this, sri, sci, eri, eci);
   }
 }
