@@ -119,8 +119,9 @@
           console.log('text:', text, ', ri: ', ri, ', ci:', ci);
         }).on('pasted-clipboard', (data) => {
           console.log('>>>> data is ', data);
-        }).on('sheet-changed', (data) => {
+        }).on('sheet-changed', (data, index) => {
           console.log(data);
+          console.log(index);
         });
 
       setTimeout(() => {

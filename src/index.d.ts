@@ -72,7 +72,7 @@ declare module 'x-data-spreadsheet-kinly' {
     ): void;
     (
       envt: SHEET_CHANGED,
-      callback: (data: SheetData) => void
+      callback: (data: SheetData, selectedSheet: number) => void
     ): void;
   }
 

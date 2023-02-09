@@ -5,7 +5,7 @@ import Sheet from './component/sheet';
 import Bottombar from './component/bottombar';
 import { cssPrefix } from './config';
 import { locale } from './locale/locale';
-
+import './index.less';
 
 class Spreadsheet {
   constructor(selectors, options = {}) {
@@ -22,12 +22,12 @@ class Spreadsheet {
       const d = this.addSheet();
       this.currentSheetIndex = this.datas.length - 1;
       this.sheet.resetData(d);
-      this.sheet.trigger('sheet-changed', d);
+      this.sheet.trigger('sheet-changed', d, this.currentSheetIndex);
     }, (index) => {
       const d = this.datas[index];
       this.currentSheetIndex = index;
       this.sheet.resetData(d);
-      this.sheet.trigger('sheet-changed', d);
+      this.sheet.trigger('sheet-changed', d, this.currentSheetIndex);
     }, () => {
       this.deleteSheet();
     }, (index, value) => {
