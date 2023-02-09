@@ -67,7 +67,7 @@ function scrollbarMove() {
   }
 }
 
-function selectorSet(multiple, ri, ci, indexesUpdated = true, moving = false) {
+function selectorSet(multiple, ri, ci, indexesUpdated = true, moving = false, trigger = true) {
   if (ri === -1 && ci === -1) return;
   const {
     table, selector, toolbar, data,
@@ -77,11 +77,15 @@ function selectorSet(multiple, ri, ci, indexesUpdated = true, moving = false) {
   const cell = data.getCell(ri, ci);
   if (multiple) {
     selector.setEnd(ri, ci, moving);
-    this.trigger('cells-selected', cell, selector.range);
+    if (trigger) {
+      this.trigger('cells-selected', cell, selector.range);
+    }
   } else {
     // trigger click event
     selector.set(ri, ci, indexesUpdated);
-    this.trigger('cell-selected', cell, ri, ci);
+    if (trigger) {
+      this.trigger('cell-selected', cell, ri, ci);
+    }
   }
   contextMenu.setMode((ri === -1 || ci === -1) ? 'row-col' : 'range');
   toolbar.reset();
@@ -94,7 +98,7 @@ function selectorRangeSet(sri, sci, eri, eci) {
   selector.set(sri, sci, true);
   selector.setEnd(eri, eci, false);
 
-  this.trigger('cells-selected', cell, selector.range);
+  //this.trigger('cells-selected', cell, selector.range);
   contextMenu.setMode('range');
   toolbar.reset();
   table.render();
@@ -1054,7 +1058,7 @@ export default class Sheet {
   }
 
   selectCell(ri, ci) {
-    selectorSet.call(this, false, ri, ci);
+    selectorSet.call(this, false, ri, ci, true, false, false);
   }
 
   getCell(ri, ci) {
