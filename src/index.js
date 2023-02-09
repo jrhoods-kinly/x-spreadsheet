@@ -140,12 +140,12 @@ class Spreadsheet {
   }
 
   // JPR 06/02/23 - adding last row/col functions
-  lastRow() {
-    return this.datas[this.currentSheetIndex].rows.length;
+  lastRow(sheetIndex = this.currentSheetIndex) {
+    return this.datas[sheetIndex].rows.length;
   }
 
-  lastCol() {
-    return this.datas[this.currentSheetIndex].rows.length;
+  lastCol(sheetIndex = this.currentSheetIndex) {
+    return this.datas[sheetIndex].rows.length;
   }
 }
 

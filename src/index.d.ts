@@ -221,6 +221,10 @@ declare module 'x-data-spreadsheet-kinly' {
     selectCell(ri: number, ci: number);
 
     selectCells(sri: number, sci: number, eri: number, eci: number);
+
+    lastRow(sheetIndex: number?);
+
+    lastCol(sheetIndex: number?);
   }
   global {
     interface Window {
