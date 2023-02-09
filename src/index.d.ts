@@ -219,6 +219,8 @@ declare module 'x-data-spreadsheet-kinly' {
     static locale(lang: string, message: object): void;
 
     selectCell(ri: number, ci: number);
+
+    selectCells(sri: number, sci: number, eri: number, eci: number);
   }
   global {
     interface Window {
