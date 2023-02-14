@@ -77,7 +77,7 @@ function selectorSet(multiple, ri, ci, indexesUpdated = true, moving = false, tr
   const cell = data.getCell(ri, ci);
   if (multiple) {
     selector.setEnd(ri, ci, moving);
-    if (trigger) {
+    if (trigger && !moving) {
       this.trigger('cells-selected', cell, selector.range);
     }
   } else {
